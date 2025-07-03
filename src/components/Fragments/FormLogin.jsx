@@ -23,7 +23,6 @@ const FormLogin = () => {
         placeholder="******"
       />
       <Button className="bg-blue-500 w-full" children="Login" type="submit">
-        Login
       </Button>
     </form>
   );
