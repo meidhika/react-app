@@ -27,7 +27,7 @@ const Navbar = () => {
         Logout
       </Button>
       <div className="flex items-center bg-gray-800 p-2 rounded-md ml-5">
-        {totalCart.toString()}
+        {totalCart}
       </div>
     </div>
   );
