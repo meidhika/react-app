@@ -1,15 +1,16 @@
 import { Fragment, useEffect, useRef, useState } from "react";
 import CardProduct from "../components/Fragments/CardProduct";
 import Button from "../components/Elements/Button/Button";
-import Counter from "../components/Fragments/Counter";
 import { getProducts } from "../services/product.service";
 import { useLogin } from "../hooks/useLogin";
+import TableCart from "../components/Fragments/TableCart";
 
 const ProductsPage = () => {
   const [cart, setCart] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
   const [products, setProducts] = useState([]);
   const username = useLogin();
+
   useEffect(() => {
     setCart(JSON.parse(localStorage.getItem("cart")) || []);
   }, []);
@@ -44,14 +45,14 @@ const ProductsPage = () => {
         )
       );
     } else {
-      setCart([...cart, { id: id, qty: 1 }]);
+      setCart([...cart, { id, qty: 1 }]);
     }
   };
 
-  // useRef
   const cartRef = useRef(JSON.parse(localStorage.getItem("cart")) || []);
-  const handleAddToCartRef = (id) => {
-    cartRef.current = [...cartRef.current, { id: id, qty: 1 }];
+
+  const handleAttToCartRef = (id) => {
+    cartRef.current = [...cartRef.current, { id, qty: 1 }];
     localStorage.setItem("cart", JSON.stringify(cartRef.current));
   };
 
@@ -63,7 +64,7 @@ const ProductsPage = () => {
     } else {
       totalPriceRef.current.style.display = "none";
     }
-  });
+  }, [cart]);
 
   return (
     <Fragment>
@@ -92,6 +93,7 @@ const ProductsPage = () => {
         </div>
         <div className="w-2/6">
           <h1 className="text-3xl font-bold text-blue-600 mb-2">Cart</h1>
+          {/* <TableCart products={products} /> */}
           <table className="text-left border-separate border-spacing-x-5 table-auto">
             <thead>
               <tr>
@@ -146,9 +148,6 @@ const ProductsPage = () => {
           </table>
         </div>
       </div>
-      {/* <div className="mt-5 flex justify-center mb-5">
-        <Counter />
-      </div> */}
     </Fragment>
   );
 };
