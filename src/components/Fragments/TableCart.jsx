@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
 
 const TableCart = (products) => {
-  // const { products } = props;
   const cart = useSelector((state) => state.cart.data);
   const [totalPrice, setTotalPrice] = useState(0);
 
