@@ -5,32 +5,6 @@ import Counter from "../components/Fragments/Counter";
 import { getProducts } from "../services/product.service";
 import { useLogin } from "../hooks/useLogin";
 
-// const products = [
-//   {
-//     id: 1,
-//     name: "New Shoes",
-//     price: 100000,
-//     image: "/images/shoes-1.jpg",
-//     description:
-//       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minus, saepe.",
-//   },
-//   {
-//     id: 2,
-//     name: "Second Shoes",
-//     price: 50000,
-//     image: "/images/shoes-1.jpg",
-//     description:
-//       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minus, saepe.",
-//   },
-//   {
-//     id: 3,
-//     name: "Premium Shoes",
-//     price: 1000000,
-//     image: "/images/shoes-1.jpg",
-//     description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
-//   },
-// ];
-
 const ProductsPage = () => {
   const [cart, setCart] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
